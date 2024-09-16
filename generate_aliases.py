@@ -51,6 +51,8 @@ def main():
     res = [
         ('po', 'pods', ['g', 'd', 'e', 'rm'], None),
         ('dep', 'deployment', ['g', 'd','e', 'rm'], None),
+        ('job', 'job', ['g', 'd','e', 'rm'], None),
+        ('cjob', 'CronJob', ['g', 'd','e', 'rm'], None),
         ('sts', 'statefulset', ['g', 'd','e', 'rm'], None),
         ('svc', 'service', ['g', 'd','e', 'rm'], None),
         ('ing', 'ingress', ['g', 'd','e', 'rm'], None),
