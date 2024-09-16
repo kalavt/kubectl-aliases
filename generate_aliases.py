@@ -36,6 +36,7 @@ def main():
         ('a', 'apply --recursive -f', None, None),
         ('ak', 'apply -k', None, ['sys']),
         ('k', 'kustomize', None, ['sys']),
+        ('e', 'edit', None, None),
         ('ex', 'exec -i -t', None, None),
         ('lo', 'logs -f', None, None),
         ('lop', 'logs -f -p', None, None),
@@ -48,15 +49,25 @@ def main():
         ]
 
     res = [
-        ('po', 'pods', ['g', 'd', 'rm'], None),
-        ('dep', 'deployment', ['g', 'd', 'rm'], None),
-        ('sts', 'statefulset', ['g', 'd', 'rm'], None),
-        ('svc', 'service', ['g', 'd', 'rm'], None),
-        ('ing', 'ingress', ['g', 'd', 'rm'], None),
-        ('cm', 'configmap', ['g', 'd', 'rm'], None),
-        ('sec', 'secret', ['g', 'd', 'rm'], None),
+        ('po', 'pods', ['g', 'd', 'e', 'rm'], None),
+        ('dep', 'deployment', ['g', 'd','e', 'rm'], None),
+        ('sts', 'statefulset', ['g', 'd','e', 'rm'], None),
+        ('svc', 'service', ['g', 'd','e', 'rm'], None),
+        ('ing', 'ingress', ['g', 'd','e', 'rm'], None),
+        ('cm', 'configmap', ['g', 'd','e', 'rm'], None),
+        ('sec', 'secret', ['g', 'd','e', 'rm'], None),
         ('no', 'nodes', ['g', 'd'], ['sys']),
         ('ns', 'namespaces', ['g', 'd', 'rm'], ['sys']),
+        ('rs', 'replicaset', ['g', 'd','e', 'rm'], None),
+        ('ds', 'daemonset', ['g', 'd','e', 'rm'], None),
+        ('sc', 'storageclass', ['g', 'd','e', 'rm'], None),
+        ('pv', 'PersistentVolume', ['g', 'd','e', 'rm'], None),
+        ('pvc', 'PersistentVolumeClaim', ['g', 'd','e', 'rm'], None),
+        ('sa', 'ServiceAccount', ['g', 'd','e', 'rm'], None),
+        ('crd', 'CustomResourceDefinition', ['g', 'd','e', 'rm'], None),
+        ('crb', 'ClusterRoleBinding', ['g', 'd','e', 'rm'], None),
+        ('cr', 'ClusterRole', ['g', 'd','e', 'rm'], None),
+        ('hpa', 'hpa', ['g','e', 'd'], None),
         ]
     res_types = [r[0] for r in res]
 
@@ -74,7 +85,7 @@ def main():
     # mutually exclusive within each other.
     positional_args = [('f', '--recursive -f', ['g', 'd', 'rm'], res_types + ['all'
                        , 'l', 'sys']), ('l', '-l', ['g', 'd', 'rm'], ['f',
-                       'all']), ('n', '--namespace', ['g', 'd', 'rm',
+                       'all']), ('n', '--namespace', ['g', 'd', 'e', 'rm',
                        'lo', 'ex', 'pf'], ['ns', 'no', 'sys', 'all'])]
 
     # [(part, optional, take_exactly_one)]
