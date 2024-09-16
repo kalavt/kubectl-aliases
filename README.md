@@ -87,6 +87,7 @@ instead of aliases, so that pressing space shows the full command before executi
   * **`sys`**: `--namespace kube-system`
 * commands:
   * **`g`**: `get`
+  * **`e`**: `edit`
   * **`d`**: `describe`
   * **`rm`**: `delete`
   * **`a`**: `apply -f`
@@ -103,6 +104,8 @@ instead of aliases, so that pressing space shows the full command before executi
   * **`sec`**: `secret`
   * **`ns`**: `namespace`
   * **`no`**: `node`
+  * add rs,ds,sc,pv,pvc,sa,crd,cdb,cr,hpa
+
 * flags:
   * output format: **`oyaml`**, **`ojson`**, **`owide`**
   * **`all`**: `--all` or `--all-namespaces` depending on the command
